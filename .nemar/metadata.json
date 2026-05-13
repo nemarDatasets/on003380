@@ -1,0 +1,23 @@
+{
+  "version": "2.0",
+  "dataset_id": "on003380",
+  "source": "openneuro",
+  "source_id": "ds003380",
+  "title": "Corticothalamic communication under analgesia, sedation and gradual ischemia: a multimodal model of controlled gradual cerebral ischemia in pig",
+  "authors": {
+    "Martin G. Frasch": {},
+    "Bernd Walter": {},
+    "Chrstophe L. Herry": {},
+    "Reinhard Bauer": {}
+  },
+  "license": "CC0",
+  "dataset_type": "raw",
+  "related_identifiers": [
+    {
+      "identifier": "10.18112/openneuro.ds003380.v1.0.0",
+      "identifier_type": "DOI",
+      "relation_type": "IsIdenticalTo"
+    }
+  ],
+  "pipeline_stage": "seeded"
+}
