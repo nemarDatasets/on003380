@@ -1,0 +1,21 @@
+{
+  "TaskName": "sedation, ischemia, recovery",
+  "SamplingFrequency": 2000,
+  "PowerLineFrequency": 50,
+  "EEGReference": "Cz",
+  "SoftwareFilters": "n/a",
+  "RecordingType": "continuous",
+  "RecordingDuration": 322,
+  "EEGChannelCount": 9,
+  "ECGChannelCount": 0,
+  "EOGChannelCount": 0,
+  "EMGChannelCount": 0,
+  "MISCChannelCount": 0,
+  "TriggerChannelCount": 0,
+  "EEGPlacementScheme": "10-20",
+  "Manufacturer": "GJB Datentechnik",
+  "ManufacturersModelName": "GJB Datentechnik Bolten & Jannek GbR, Ilmenau, Germany",
+  "InstitutionName": "Jena University Hospital",
+  "InstitutionAddress": "Hans Knoell Str. 2, Floor 3, D-07745 Jena, Germany",
+  "InstitutionalDepartmentName": "Institute of Molecular Cell Biology"
+}
