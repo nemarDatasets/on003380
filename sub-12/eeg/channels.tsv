@@ -1,0 +1,10 @@
+name	type	units	description
+Fp1	ECoG frontal left	uV	6
+Fp2	ECoG frontal right	uV	7
+F4	ECoG parietal right	uV	8
+C3	ECoG central left	uV	9
+C4	ECoG cenral right	uV	10
+T5	ECoG temporal left	uV	11
+T6	ECoG temporal right	uV	12
+P3	ECoG occip left	uV	13
+P4	ECoG occip right	uV	14
