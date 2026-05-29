@@ -13,16 +13,23 @@ The scientific article (see Reference) contains all methodological details.
 
 PS. Sub-12 folder is to be ignored. It was added to satisfy the BIDS validation algorithm.
 
-## NEMAR curation changes (2026-05-21, revised 2026-05-22)
+## NEMAR curation changes (2026-05-21, revised 2026-05-27)
 
-Raw binary payloads (`.edf`, `.tar.gz`) are byte-identical. Final BIDS-validator state: 0 errors.
+The BIDS validator went from 6 errors + 29 warnings to 0 errors + 2 warnings. None of the raw `.edf` files were modified, every change is to a text sidecar.
 
-### `dataset_description.json`
-- Added `DatasetType: "raw"`.
-- Added `GeneratedBy: [{Name: "nemar-cli", Version: "0.8.8", CodeURL: "https://github.com/nemar-org/nemar-cli"}]`.
-- Bumped `BIDSVersion` `1.1.1` → `1.8.0`.
+**Dataset description (`dataset_description.json`)**
+- Added `DatasetType: "raw"` so the dataset is validated as raw data rather than a derivative.
+- Updated `BIDSVersion` from `1.1.1` to `1.11.1` (the version the current validator checks against).
+- `GeneratedBy` was left absent, exactly as the source published it, nothing was added there.
 
-### `.bidsignore`
-- Added `sub-12`, `sub-12/`, `sub-12/**` (multiple unanchored patterns to cover both the directory entry and its contents). Why: per the dataset's own README, "Sub-12 folder is to be ignored. It was added to satisfy the BIDS validation algorithm." Excluding `sub-12/` from validation makes the placeholder no longer trigger BIDS-validator errors. The original `sub-12/eeg/sub-12_eeg.edf` symlink and `channels.tsv` are preserved unchanged.
+**Validator-ignore list (`.bidsignore`)**
+- Added entries that exclude the `sub-12` directory from validation (`sub-12`, `sub-12/`, `sub-12/**`, covering both the directory entry and everything inside it). The dataset's own README explains that `sub-12` is a placeholder folder added only to satisfy an older BIDS-validator quirk, so it was never a real subject. Excluding it cleans up the errors and warnings the current validator raises against that placeholder (a missing task entity in the EDF filename, missing required sidecar keys like `TaskName`, `SamplingFrequency`, `PowerLineFrequency`, `EEGReference`, `SoftwareFilters`, and a long list of recommended-but-missing fields). The placeholder files themselves (`sub-12/eeg/sub-12_eeg.edf` symlink and `sub-12/eeg/channels.tsv`) are preserved unchanged.
 
-The other 11 subject directories (`sub-01` through `sub-11`) and their `channels.json` / `channels.tsv` files are untouched. They carry the study's documented per-subject metadata but no `_eeg.edf` (the dataset's published structure on OpenNeuro keeps the EEG data inside `sub-NN_edf.tar.gz` archives, which are excluded from validation by the existing `.bidsignore` pattern `*_edf.tar.gz`).
+**Other subject directories (`sub-01` through `sub-11`)**
+- Untouched. Their `channels.json` and `channels.tsv` files carry the study's documented per-subject metadata, and they are not flagged by the validator because the existing `.bidsignore` entry `*_edf.tar.gz` already excludes the per-subject EEG archives from validation (see the next section for why the EEG payloads live in archives rather than loose `.edf` files).
+
+**Remaining warnings (2), left on purpose**
+- `HEDVersion` and `GeneratedBy` in `dataset_description.json` are flagged as recommended-but-missing. Neither was added: the dataset does not use HED tags, and `GeneratedBy` was deliberately left off (see the dataset-description bullet above).
+
+**Out of mechanical scope: per-subject EEG packaging**
+- The published dataset stores each subject's EEG recording inside a `.tar.gz` archive at `sub-NN/eeg/sub-NN_edf.tar.gz` rather than as a loose `.edf` file. That packaging matches the source on OpenNeuro and is what the dataset's existing `.bidsignore` rule `*_edf.tar.gz` is there to silence. Unpacking the archives into BIDS-canonical `sub-NN_task-..._eeg.edf` files would require deciding on a task slug, generating a matching `_eeg.json` for each recording, and verifying the contents against the publication, which is a study-level call rather than a mechanical sidecar fix, so it was left alone.
