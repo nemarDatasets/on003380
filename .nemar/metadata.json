@@ -1,23 +1,90 @@
 {
   "version": "2.0",
-  "dataset_id": "on003380",
-  "source": "openneuro",
-  "source_id": "ds003380",
+  "pipeline_stage": "enriched",
   "title": "Corticothalamic communication under analgesia, sedation and gradual ischemia: a multimodal model of controlled gradual cerebral ischemia in pig",
+  "license": "CC0",
+  "dataset_type": "raw",
   "authors": {
     "Martin G. Frasch": {},
     "Bernd Walter": {},
     "Chrstophe L. Herry": {},
     "Reinhard Bauer": {}
   },
-  "license": "CC0",
-  "dataset_type": "raw",
   "related_identifiers": [
     {
       "identifier": "10.18112/openneuro.ds003380.v1.0.0",
       "identifier_type": "DOI",
-      "relation_type": "IsIdenticalTo"
+      "relation_type": "IsDerivedFrom"
+    },
+    {
+      "identifier": "https://github.com/nemarDatasets/on003380",
+      "identifier_type": "URL",
+      "relation_type": "IsDescribedBy"
+    },
+    {
+      "identifier": "https://nemar.org/dataexplorer/detail?dataset_id=on003380",
+      "identifier_type": "URL",
+      "relation_type": "IsDescribedBy"
     }
   ],
-  "pipeline_stage": "seeded"
+  "modalities": [
+    "eeg"
+  ],
+  "resource_type_specific": "EEG Dataset",
+  "sizes": [
+    "1.5 GB (13 files)"
+  ],
+  "formats": [
+    ".edf",
+    ".gitattributes",
+    ".gz",
+    ".json",
+    ".md",
+    ".tsv",
+    ".yml"
+  ],
+  "description": "A multimodal neuroimaging dataset from 11 juvenile pigs examining corticothalamic communication under varying pharmacological states and controlled cerebral ischemia. Animals were monitored through sequential sedation protocols (isoflurane, fentanyl, propofol), followed by gradual ischemia episodes and recovery phases. The dataset includes both sedation-only controls and ischemia-with-recovery experimental groups, providing insights into brain function under anesthesia and ischemic stress.",
+  "methods_description": "Juvenile pigs (n=11) were surgically instrumented and monitored across multiple states: sedation states 1-5 using isoflurane, fentanyl, and propofol; gradual ischemia episodes (states 6 and 8) with intervening recovery periods (state 7 between ischemia episodes, states 9-12 following final ischemia). Two experimental groups were compared: sedation-only controls and sedation-ischemia-recovery animals.",
+  "keywords": [
+    {
+      "term": "cerebral ischemia"
+    },
+    {
+      "term": "sedation"
+    },
+    {
+      "term": "anesthesia"
+    },
+    {
+      "term": "corticothalamic communication"
+    },
+    {
+      "term": "multimodal neuroimaging"
+    },
+    {
+      "term": "animal model"
+    },
+    {
+      "term": "brain function"
+    },
+    {
+      "term": "pig"
+    },
+    {
+      "term": "porcine"
+    },
+    {
+      "term": "EEG"
+    },
+    {
+      "term": "pharmacological sedation"
+    },
+    {
+      "term": "juvenile"
+    },
+    {
+      "term": "recovery"
+    }
+  ],
+  "source_hash": "48b40b000949a023997c0064bb4ad03ffe9475c80cbcca873f9ad16a61c043cd"
 }
