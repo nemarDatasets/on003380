@@ -1,0 +1,15 @@
+{
+  "dataset_id": "on003380",
+  "version": "1.0.0",
+  "generated_at": "2026-07-23T01:13:30.892Z",
+  "source": null,
+  "complete": true,
+  "completeness": {
+    "files_present": 12,
+    "files_declared": 12,
+    "bytes_present": 1535189153,
+    "bytes_declared": 1535203520,
+    "pct_bytes": 0.9999906416316711
+  },
+  "missing": []
+}
