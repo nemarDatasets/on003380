@@ -1,4 +1,7 @@
 *_edf.tar.gz
 *_channels.json
 channels.tsv
+sub-12
+sub-12/
+sub-12/**
 .nemar/
